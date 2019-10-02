@@ -1,0 +1,53 @@
+PSEUDO-CODIGO PARA BUSCA EM PROFUNDIDADE
+              V <- lista de prioridade para proximo local a ser buscado
+              M <- Matriz de locais ja visitados #acho que eh um array soh, nao uma matriz, mas enfim
+              P <- lista de caminho realizado
+              loc_atual <- localizacao atual
+              loc_proximo <- proximo local
+              encontrou_caminho <- ...encontrou caminho
+              goals <- contagem de objetivos
+              FIM <- ponto de fim
+
+
+
+              # codigo
+              p0 = ponto inicial
+              M = [0..0] # inicializa tudo em 0
+              V = [] # inicializa como pilha
+
+              While (goals < 3)
+                    encontrou_caminho = 0
+                    if existe goal(loc_atual)
+                       goals++
+
+                    if goals >= 3
+                       break
+                    
+                    if esquerda(loc_atual) existe AND M[esquerda(loc_atual)] == 0 # se for zero, ainda n foi visitado
+                       then push esquerda(loc_atual) to V
+                            encontrou_caminho++
+                    if cima(loc_atual) existe AND M[cima(loc_atual)] == 0 # se for zero, ainda n foi visitado
+                       then push cima(loc_atual) to V
+                            encontrou_caminho++
+                    if direita(loc_atual) existe AND M[direita(loc_atual)] == 0 # se for zero, ainda n foi visitado
+                       then push direita(loc_atual) to V
+                            encontrou_caminho++
+
+                        
+
+                    M[loc_atual] = 1
+
+                    loc_proximo = pop(V)
+                    while(loc_proximo nao for adjacente de loc_atual)
+                                      loc_atual = pop(P)
+
+                    push loc_atual to P
+                    loc_atual = loc_proximo #seja uma fila ou pilha
+                    
+
+              While (loc_atual != FIM)
+                    #algoritmo para ir direto para o fim
+                    #note que temos o fim e a localizacao atual
+
+  
+
